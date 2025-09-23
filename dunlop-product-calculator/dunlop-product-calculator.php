@@ -6,7 +6,7 @@
  * Version: 1.1.0
  * Author: Dunlop Adhesives
  * License: GPL v2 or later
- * Text Domain: dunlop-calculator
+ * Text Domain: dunlop-calculator 
  * GitHub Plugin URI: markdunlop-web/dunlop-product-calculator
  */
 
