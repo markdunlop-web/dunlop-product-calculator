@@ -7,7 +7,7 @@
  * Author: Dunlop Adhesives
  * License: GPL v2 or later
  * Text Domain: dunlop-calculator
-  * GitHub Plugin URI: markdunlop-web/dunlop-product-calculator
+ * GitHub Plugin URI: markdunlop-web/dunlop-product-calculator
  */
 
 // Prevent direct access
