@@ -3,7 +3,7 @@
  * Version 1.1.0 - With attribute support
  */
 jQuery(document).ready(function($) {
-    console.log('Dunlop Plugin Calculator: Initializing v1.1.0 - GitHub Test Working! 🚀');
+    console.log('Dunlop Plugin Calculator: Initializing v1.1.0...');
     
     // Block old calculator
     window.ajax_function = function() {
