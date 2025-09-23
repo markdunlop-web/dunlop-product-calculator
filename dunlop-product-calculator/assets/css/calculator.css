@@ -161,11 +161,11 @@
     margin: 0;
 }
 
-/* Initial "Enter values" state text in gray */
+/* Initial "Enter values" state text in bold black */
 .calculator .results_container .number_of_packs #calc-result.initial-state {
-    color: #999;
-    font-size: 18px;
-    font-weight: 400;
+    color: #000;
+    font-size: 20px;
+    font-weight: 700;
     text-transform: none;
     line-height: 30px;
 }
