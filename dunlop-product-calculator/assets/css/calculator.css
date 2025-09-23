@@ -1,0 +1,397 @@
+/* Dunlop Calculator Frontend Styles - Version 1.1.0 */
+
+/* Hide the old static calculator */
+.results_container.static {
+    display: none !important;
+}
+
+/* Main calculator container */
+.calculator_container.wp_content {
+    margin-top: 40px;
+}
+
+.calculator_container h6 {
+    color: #000;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+/* Calculator wrapper with side-by-side layout */
+.calculator {
+    border-radius: 1px;
+    border-left: 5px solid #FFD700;
+    background: #F5F5F5;
+    padding: 40px 60px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* Form inputs section */
+.calculator form {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.calculator .area,
+.calculator .depth,
+.calculator .application,
+.calculator .tile-length,
+.calculator .tile-width,
+.calculator .joint-width,
+.calculator .joint-depth,
+.calculator .length,
+.calculator .colour,
+.calculator .coats {
+    display: flex;
+    flex-direction: column;
+}
+
+.calculator label {
+    font-size: 16px;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 700;
+    line-height: 22px;
+    letter-spacing: 1.6px;
+}
+
+.calculator form > div > div {
+    display: flex;
+    align-items: center;
+}
+
+.calculator input[type="number"],
+.calculator select {
+    border: 1px solid #F5F5F5;
+    background: #FFF;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 55px;
+    max-width: 100px;
+    width: 100%;
+    color: #000; /* Black text when typing */
+    font-weight: 400;
+    font-size: 16px;
+}
+
+/* Placeholder text in gray */
+.calculator input[type="number"]::placeholder {
+    color: #999;
+    font-weight: 400;
+}
+
+/* Make entered values black and clear - multiple selectors for better support */
+.calculator input[type="number"]:not(:placeholder-shown),
+.calculator input[type="number"]:valid,
+.calculator input[type="number"][value]:not([value=""]) {
+    color: #000 !important;
+}
+
+.calculator select {
+    max-width: 180px;
+    cursor: pointer;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Select option styling */
+.calculator select option {
+    color: #000;
+}
+
+/* Ensure selected option is black */
+.calculator select:focus,
+.calculator select:valid {
+    color: #000 !important;
+}
+
+/* Colour dropdown specific styling */
+.calculator select[name="colour"] {
+    max-width: 200px;
+}
+
+.calculator .append {
+    font-size: 16px;
+    margin: 0 0 0 10px;
+    font-weight: 300;
+    line-height: 150%;
+    color: #686e77;
+}
+
+/* Input focus and active states */
+.calculator input[type="number"]:focus {
+    outline: none;
+    border-color: #FFD700;
+    color: #000 !important;
+}
+
+/* Ensure typed values are black and properly sized */
+.calculator input[type="number"][value]:not([value=""]) {
+    color: #000 !important;
+    font-weight: 400;
+}
+
+/* Remove spinner buttons for cleaner look (optional) */
+.calculator input[type="number"]::-webkit-inner-spin-button,
+.calculator input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.calculator input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/* Results section */
+.calculator .results_container {
+    text-align: right;
+}
+
+.calculator .results_container .number_of_packs {
+    margin: 0;
+}
+
+/* Initial "Enter values" state text in gray */
+.calculator .results_container .number_of_packs #calc-result.initial-state {
+    color: #999;
+    font-size: 18px;
+    font-weight: 400;
+    text-transform: none;
+    line-height: 30px;
+}
+
+/* Calculated result in bold black - high specificity to ensure it applies */
+#dunlop-calc-form ~ .results_container .number_of_packs #calc-result.calculated,
+.calculator .results_container .number_of_packs #calc-result.calculated {
+    color: #000 !important;
+    font-size: 32px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    line-height: 30px !important;
+    display: inline-block !important;
+}
+
+.calculator .results_container .calculation {
+    margin-top: 10px;
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.calculator .results_container .calc-info {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.calculator .results_container .calc-info strong {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.calculator .results_container .pack-breakdown {
+    display: block;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.calculator .results_container .calc-info small {
+    font-size: 13px;
+    color: #666;
+}
+
+.calculator .results_container .calc-info em {
+    display: block;
+    margin-top: 8px;
+    padding: 8px 12px;
+    background: #fff3cd;
+    border: 1px solid #ffc107;
+    border-radius: 4px;
+    font-style: normal;
+    line-height: 1.4;
+    text-align: left;
+    font-size: 12px;
+}
+
+/* Button */
+.calculator_container .button {
+    min-width: 100%;
+    box-sizing: border-box;
+    margin-top: 40px;
+    background: #000;
+    color: #FFD700;
+    padding: 16px 32px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: background 0.3s ease, opacity 0.3s ease;
+}
+
+.calculator_container .button:hover:not(.disabled) {
+    background: #333;
+}
+
+.calculator_container .button.disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Info boxes for silicone and waterproofing */
+.bead-info,
+.coverage-info {
+    padding: 12px;
+    background: white;
+    border-radius: 3px;
+    color: #666;
+    margin: 15px 0;
+    border: 1px solid #e0e0e0;
+    font-size: 14px;
+}
+
+/* Grout calculator specific layout */
+.calculator.grout-calc form {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    max-width: 100%;
+}
+
+.calculator.grout-calc form > div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Notification styles */
+.dunlop-notification {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    padding: 15px 25px;
+    background: #fff;
+    border-left: 4px solid #00a0d2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 9999;
+    display: none;
+    max-width: 300px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.dunlop-notification.success {
+    border-left-color: #46b450;
+}
+
+.dunlop-notification.error {
+    border-left-color: #dc3232;
+}
+
+/* Job list counter (if implemented in header) */
+.job-list-counter {
+    display: inline-block;
+    background: #ccc;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    font-size: 12px;
+    margin-left: 5px;
+    transition: background 0.3s ease;
+}
+
+.job-list-counter.has-items {
+    background: #FFD700;
+    color: #000;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .calculator {
+        padding: 20px;
+    }
+    
+    .calculator form {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    
+    .calculator form > div {
+        width: 100%;
+    }
+    
+    .calculator input[type="number"],
+    .calculator select {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .calculator .results_container {
+        width: 100%;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    .calculator .results_container .calc-info {
+        text-align: center;
+    }
+    
+    /* Grout calculator mobile layout */
+    .calculator.grout-calc form {
+        grid-template-columns: 1fr;
+    }
+    
+    .dunlop-notification {
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .calculator_container h6 {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    
+    .calculator label {
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+    
+    .calculator .results_container .number_of_packs #calc-result.calculated {
+        font-size: 24px;
+    }
+    
+    .calculator .results_container .number_of_packs #calc-result.initial-state {
+        font-size: 16px;
+    }
+}

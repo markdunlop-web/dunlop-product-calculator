@@ -1,0 +1,283 @@
+/**
+ * Dunlop Calculator Admin Styles
+ * Version 1.1.0 - With attribute support
+ */
+
+/* Main calculator fields container */
+.dunlop-calculator-fields {
+    background: #f9f9f9;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+}
+
+.dunlop-calculator-fields h4 {
+    margin: 0 0 15px 0;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+    color: #23282d;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.dunlop-calculator-fields h5 {
+    margin: 10px 0;
+    color: #50575e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Attribute settings section */
+.attribute-settings {
+    background: #f1f1f1;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    padding: 15px;
+    margin: 15px 0;
+    position: relative;
+}
+
+.attribute-settings h5 {
+    margin-top: 0;
+    color: #2271b1;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.attribute-settings .form-field {
+    margin-bottom: 10px;
+}
+
+/* Attribute help text */
+.attribute-help {
+    background: #f0f8ff !important;
+    border-left: 3px solid #2271b1 !important;
+    padding: 10px !important;
+    margin: 10px 0 !important;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 0 3px 3px 0;
+}
+
+.attribute-help strong {
+    color: #135e96;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Attribute notice */
+.attribute-notice {
+    background: #fff;
+    border-left: 4px solid #72aee6;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    margin: 0 0 15px 0 !important;
+    padding: 12px !important;
+}
+
+/* Quick links section */
+.quick-links {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.quick-links strong {
+    color: #23282d;
+    margin-right: 10px;
+}
+
+.quick-links .button-small {
+    font-size: 12px;
+    height: 26px;
+    line-height: 24px;
+    padding: 0 8px;
+}
+
+/* Type-specific field groups */
+.calc-type-fields {
+    margin-top: 15px;
+    padding: 12px;
+    background: #fff;
+    border-left: 3px solid #2271b1;
+    border-radius: 0 3px 3px 0;
+    display: none;
+}
+
+.calc-type-fields.active {
+    display: block;
+}
+
+.calc-type-fields h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #2271b1;
+    font-size: 13px;
+    border: none;
+    padding: 0;
+}
+
+/* Basic fields section */
+.calc-basic-fields {
+    background: #fff;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 3px;
+}
+
+/* Field styling improvements */
+.dunlop-calculator-fields .form-field {
+    margin-bottom: 12px;
+}
+
+.dunlop-calculator-fields .form-field label {
+    font-weight: 600;
+    color: #23282d;
+}
+
+.dunlop-calculator-fields .description {
+    font-style: normal;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Checkbox styling */
+.dunlop-calculator-fields input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.dunlop-calculator-fields .checkbox {
+    margin-bottom: 8px;
+}
+
+/* Number input styling */
+.dunlop-calculator-fields input[type="number"] {
+    width: 80px;
+}
+
+/* Select dropdown styling */
+.dunlop-calculator-fields select {
+    min-width: 200px;
+}
+
+/* Help text styling */
+.calc-help-text {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.calc-help-text strong {
+    color: #856404;
+}
+
+/* Color coding for different calculator types */
+.calc-type-fields[data-type="leveller"] {
+    border-left-color: #00a0d2;
+}
+
+.calc-type-fields[data-type="leveller"] h5 {
+    color: #00a0d2;
+}
+
+.calc-type-fields[data-type="adhesive"] {
+    border-left-color: #32cd32;
+}
+
+.calc-type-fields[data-type="adhesive"] h5 {
+    color: #32cd32;
+}
+
+.calc-type-fields[data-type="grout"] {
+    border-left-color: #ff6347;
+}
+
+.calc-type-fields[data-type="grout"] h5 {
+    color: #ff6347;
+}
+
+.calc-type-fields[data-type="silicone"] {
+    border-left-color: #9b59b6;
+}
+
+.calc-type-fields[data-type="silicone"] h5 {
+    color: #9b59b6;
+}
+
+.calc-type-fields[data-type="waterproofing"] {
+    border-left-color: #3498db;
+}
+
+.calc-type-fields[data-type="waterproofing"] h5 {
+    color: #3498db;
+}
+
+/* Validation error styling */
+.dunlop-calculator-fields input.error {
+    border-color: #d63638 !important;
+}
+
+/* Hover effects */
+.dunlop-calculator-fields .form-field:hover {
+    background: rgba(0,0,0,0.02);
+    border-radius: 3px;
+    margin-left: -5px;
+    margin-right: -5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 782px) {
+    .dunlop-calculator-fields {
+        padding: 10px;
+    }
+    
+    .calc-type-fields {
+        padding: 10px;
+    }
+    
+    .attribute-settings {
+        padding: 10px;
+    }
+    
+    .dunlop-calculator-fields input[type="number"],
+    .dunlop-calculator-fields select {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .quick-links {
+        text-align: center;
+    }
+    
+    .quick-links .button-small {
+        display: inline-block;
+        margin: 5px;
+    }
+}
+
+/* Loading state */
+.dunlop-calculator-fields.loading {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.dunlop-calculator-fields.loading::after {
+    content: "Saving...";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 10px 20px;
+    border: 2px solid #2271b1;
+    border-radius: 3px;
+    font-weight: 600;
+}
