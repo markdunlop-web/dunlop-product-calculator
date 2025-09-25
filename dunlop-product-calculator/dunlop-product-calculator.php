@@ -505,32 +505,49 @@ class DunlopProductCalculator {
                 break;
             
             case 'grout':
-                $area = floatval($input_data['area']);
-                $tile_length = floatval($input_data['tile_length']);
-                $tile_width = floatval($input_data['tile_width']);
-                $joint_width = floatval($input_data['joint_width']);
-                $joint_depth = floatval($input_data['joint_depth']);
-                $density = floatval($config['grout']['density']) ?: 1.6;
-                
-                // Calculate grout needed (formula from original calculator)
-                $grout_per_sqm = (($tile_length + $tile_width) / ($tile_length * $tile_width)) * $joint_width * $joint_depth * $density;
-                $total_kg = $grout_per_sqm * $area;
-                
-                $pack_size = floatval($config['pack_size']) ?: 3.5;
-                $packs_needed = ceil($total_kg / $pack_size);
-                
-                $result = array(
-                    'success' => true,
-                    'quantity' => $packs_needed,
-                    'unit' => $config['pack_unit'] ?: 'pack',
-                    'total_kg' => $total_kg,
-                    'colour' => sanitize_text_field($input_data['colour']),
-                    'details' => sprintf(
-                        'Total grout needed: %.1fkg<br>Tile size: %s×%smm, Joint: %s×%smm',
-                        $total_kg, $tile_length, $tile_width, $joint_width, $joint_depth
-                    )
-                );
-                break;
+    $area = floatval($input_data['area']);
+    $tile_length = floatval($input_data['tile_length']);
+    $tile_width = floatval($input_data['tile_width']);
+    $joint_width = floatval($input_data['joint_width']);
+    $joint_depth = floatval($input_data['joint_depth']);
+    $density = floatval($config['grout']['density']) ?: 1.6;
+    
+    // Calculate grout needed
+    $grout_per_sqm = (($tile_length + $tile_width) / ($tile_length * $tile_width)) * $joint_width * $joint_depth * $density;
+    $total_kg = $grout_per_sqm * $area;
+    
+    // Check for weight attributes
+    if ($config['use_weight_attributes'] && !empty($config['available_weights'])) {
+        $pack_combination = $this->optimize_pack_sizes($total_kg, $config['available_weights']);
+        $result = array(
+            'success' => true,
+            'quantity' => $pack_combination['total_packs'],
+            'pack_breakdown' => $pack_combination['breakdown'],
+            'unit' => 'pack',
+            'total_kg' => $total_kg,
+            'colour' => sanitize_text_field($input_data['colour']),
+            'details' => sprintf(
+                'Total grout needed: %.1fkg<br>Tile size: %s×%smm, Joint: %s×%smm',
+                $total_kg, $tile_length, $tile_width, $joint_width, $joint_depth
+            )
+        );
+    } else {
+        $pack_size = floatval($config['pack_size']) ?: 3.5;
+        $packs_needed = ceil($total_kg / $pack_size);
+        
+        $result = array(
+            'success' => true,
+            'quantity' => $packs_needed,
+            'unit' => $config['pack_unit'] ?: 'pack',
+            'total_kg' => $total_kg,
+            'colour' => sanitize_text_field($input_data['colour']),
+            'details' => sprintf(
+                'Total grout needed: %.1fkg<br>Tile size: %s×%smm, Joint: %s×%smm',
+                $total_kg, $tile_length, $tile_width, $joint_width, $joint_depth
+            )
+        );
+    }
+    break;
             
             case 'adhesive_ready':
             case 'adhesive_powder':
