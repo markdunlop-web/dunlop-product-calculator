@@ -513,7 +513,7 @@ class DunlopProductCalculator {
                 $density = floatval($config['grout']['density']) ?: 1.6;
                 
                 // Calculate grout needed (formula from original calculator)
-                $grout_per_sqm = (($tile_length + $tile_width) / ($tile_length * $tile_width)) * $joint_width * $joint_depth * $density / 1000;
+                $grout_per_sqm = (($tile_length + $tile_width) / ($tile_length * $tile_width)) * $joint_width * $joint_depth * $density;
                 $total_kg = $grout_per_sqm * $area;
                 
                 $pack_size = floatval($config['pack_size']) ?: 3.5;
