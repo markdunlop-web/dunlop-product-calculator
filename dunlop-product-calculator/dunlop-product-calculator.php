@@ -554,12 +554,12 @@ class DunlopProductCalculator {
                 $area = floatval($input_data['area']);
                 $application = sanitize_text_field($input_data['application']);
                 
-                // Get coverage rate based on application
-                $coverage_rate = ($application === 'walls') 
-                    ? floatval($config['adhesive']['coverage_walls']) 
-                    : floatval($config['adhesive']['coverage_floors']);
-                
-                $total_kg = $area / $coverage_rate;
+                // Get consumption rate based on application (kg/m²)
+                $consumption_rate = ($application === 'walls') 
+                    ? floatval($config['adhesive']['consumption_walls']) 
+                    : floatval($config['adhesive']['consumption_floors']);
+
+                $total_kg = $area * $consumption_rate;  // Multiply instead of divide!
                 
                 // Handle pack size optimization for ready mixed
                 if ($calc_type === 'adhesive_ready' && $config['use_weight_attributes'] && !empty($config['available_weights'])) {
@@ -571,8 +571,8 @@ class DunlopProductCalculator {
                         'unit' => $config['pack_unit'] ?: 'tub',
                         'total_kg' => $total_kg,
                         'details' => sprintf(
-                            'Total adhesive needed: %.1fkg<br>Application: %s, Coverage rate: %sm²/kg',
-                            $total_kg, ucfirst($application), $coverage_rate
+                            'Total adhesive needed: %.1fkg<br>Application: %s, Consumption rate: %skg/m²',
+                            $total_kg, ucfirst($application), $consumption_rate
                         )
                     );
                 } else {
@@ -585,8 +585,8 @@ class DunlopProductCalculator {
                         'unit' => $config['pack_unit'] ?: 'bag',
                         'total_kg' => $total_kg,
                         'details' => sprintf(
-                            'Total adhesive needed: %.1fkg<br>Application: %s, Coverage rate: %sm²/kg',
-                            $total_kg, ucfirst($application), $coverage_rate
+                            'Total adhesive needed: %.1fkg<br>Application: %s, Consumption rate: %skg/m²',
+                            $total_kg, ucfirst($application), $consumption_rate
                         )
                     );
                 }
