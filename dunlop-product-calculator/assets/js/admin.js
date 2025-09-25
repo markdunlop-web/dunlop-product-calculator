@@ -50,7 +50,7 @@ jQuery(document).ready(function($) {
         const colourTypes = ['grout', 'silicone', 'adhesive_ready'];
         
         // Types that support weight attributes
-        const weightTypes = ['adhesive_ready', 'adhesive_powder', 'leveller'];
+        const weightTypes = ['adhesive_ready', 'adhesive_powder', 'leveller', 'grout'];
         
         // Show/hide colour option
         if (colourTypes.includes(type)) {
